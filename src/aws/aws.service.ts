@@ -7,10 +7,7 @@ export class AwsService {
   constructor(private configService: ConfigService) {}
 
   bucketName = this.configService.get('AWS_BUCKET_NAME');
-  s3 = new S3({
-    accessKeyId: this.configService.get('ACCESS_ID'),
-    secretAccessKey: this.configService.get('AWS_SECRET_KEY'),
-  });
+  s3 = new S3();
 
   async uploadPublicFile(dataBuffer: Buffer, filename: string) {
     try {
